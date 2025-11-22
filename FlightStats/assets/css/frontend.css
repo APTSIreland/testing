@@ -1,0 +1,222 @@
+/* ----------------------------------------------------------
+   Front-end styling for the Flight Status list
+   Inspired by a clean airline arrivals board layout
+----------------------------------------------------------- */
+
+.apts-fs-front {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #e4ead8;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f7f9f4 0%, #f1f4ed 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1f2a1c;
+}
+
+.apts-fs-front h3 {
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+.apts-fs-front p {
+    color: #4f5b46;
+    line-height: 1.5;
+}
+
+.apts-fs-front textarea {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 12px;
+    border: 1px solid #d5ddc5;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #1f2a1c;
+    background: #ffffff;
+}
+
+.apts-fs-front button.button-primary {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #6a9b2f;
+    border: none;
+    box-shadow: 0 8px 16px rgba(106, 155, 47, 0.25);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.apts-fs-front button.button-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(106, 155, 47, 0.28);
+}
+
+/* Message line above the list */
+#apts-fs-front-message {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #425032;
+}
+
+/* Flight list container */
+.apts-fs-flight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* Individual flight card */
+.apts-flight-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 1px solid #e2e9d8;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(26, 40, 21, 0.06);
+}
+
+.apts-flight-time {
+    min-width: 88px;
+    text-align: center;
+}
+
+.apts-time-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2a1c;
+}
+
+.apts-time-label {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6d7a63;
+}
+
+.apts-flight-route {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 240px;
+    min-width: 200px;
+}
+
+.apts-route-arrow {
+    font-size: 18px;
+    color: #a4b28a;
+}
+
+.apts-city {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.apts-city-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2a1c;
+}
+
+.apts-flight-code {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6d7a63;
+}
+
+.apts-flight-meta {
+    display: flex;
+    gap: 10px;
+    flex: 0 0 260px;
+    min-width: 220px;
+    flex-wrap: wrap;
+}
+
+.apts-meta-item {
+    background: #f6f9f3;
+    border: 1px solid #e2e9d8;
+    border-radius: 10px;
+    padding: 8px 10px;
+    min-width: 120px;
+}
+
+.apts-meta-label {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7e8b70;
+}
+
+.apts-meta-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #263320;
+}
+
+.apts-flight-status {
+    margin-left: auto;
+}
+
+.apts-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+}
+
+/* Risk Colour Coding – pill only */
+.apts-row-ontime .apts-status-pill {
+    background: #e7f6e6;
+    color: #2f7b3c;
+}
+
+.apts-row-atrisk .apts-status-pill {
+    background: #fff4de;
+    color: #8a6400;
+}
+
+.apts-row-delayed .apts-status-pill {
+    background: #ffe4e2;
+    color: #b53030;
+}
+
+.apts-row-checkdaa .apts-status-pill {
+    background: #e3ebff;
+    color: #264d99;
+}
+
+.apts-row-diverted-flash .apts-status-pill {
+    animation: apts-fs-diverted-flash 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes apts-fs-diverted-flash {
+    from { background-color: #ffe4e2; }
+    to   { background-color: #ffcec9; }
+}
+
+.apts-fs-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #6d7a63;
+}
+
+@media (max-width: 720px) {
+    .apts-flight-card {
+        align-items: flex-start;
+    }
+
+    .apts-flight-meta {
+        flex: 1 1 100%;
+    }
+
+    .apts-flight-status {
+        width: 100%;
+    }
+}
